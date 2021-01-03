@@ -20,6 +20,23 @@ export const state = () => ({
   ]
 })
 
+
+export const actions = {
+  getAll({state}) {
+    let banners = []
+
+    this.$fire.firestore.collection("banners").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        banners.unshift(doc.data())
+      });
+
+       return banners
+      });
+
+      return banners
+}
+}
+
 export const mutations = {
 
 }

@@ -1,192 +1,227 @@
 <template>
-	<div class="container-fluid">
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 pd-left pd-tabs-content">
-			<div class="product-cont">
-				<div class="image-gallery js-gallery">
-					<div class="carousel gallery-image js-gallery-image big-images owl-carousel owl-theme" style="opacity: 1; display: block;">
-						<div class="owl-wrapper-outer">
-							<div class="owl-wrapper clearfix" style="width: 936px; left: 0px; display: block; transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);">
-								<div class="owl-item">
-									<div class="item">
-										<div class="thumb">
-											<b-img :src="product.images[0]"/>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-7 pd-right pd-tabs-content">
-			<div class="row">
-				<div class="container-fluid">
-					<div class="product-cont subscription-mode">
-						<div class="row hidden-md hidden-lg visible-xs visible-sm">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pd-camp-text">
-								<div class="bundle"></div>
-							</div>
-						</div>
-						<div class="product-details-cont">
-							<div class="product-details">
-								<div class="brand float-left">
-									<span> Marka:
-                    <a href="/tr/caykur/b/BRN-1507"> {{product.brand}}</a>
-									</span>
-								</div>
-								<div class="name float-left">
-									<h1>{{product.title}}</h1>
-								</div>
-								<div class="rating js-ratingCalc" data-rating="{&quot;rating&quot;:0.0,&quot;total&quot;:5}">
-									<div class="rating-stars">
-										<b-rating inline  no-border  :value="product.rating"/>
-									</div>
-									<span class="reviews reviewsNumber">
-										<span class="no-review">
-											<span>
-												<a class="js-no-review"> Yorum Yazın</a>
-											</span>
-										</span>
-									</span>
-									<span class="reviews reviewsText"></span>
-								</div>
-								<div class="row price-row ">
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pd-price-cont">
-										<span class="price-cont " content="TRY" itemprop="priceCurrency">
-											<span class="hidden" content="InStock" itemprop="availability">InStock</span>
-											<label class="textLabel"> Fiyatı: </label>
-											<span class="item-price " :content="product.price" itemprop="price">{{product.price}} TL</span>
-										</span>
-										<p class="item-price-unit"></p>
-									</div>
-								</div>
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pd-price-cont"></div>
-								<div class="addtocart-component row">
-									<input type="hidden" name="displayUnit" id="displayUnit" path="displayUnit&quot;" value="adet">
-										<div class="qty-selector input-group  js-qty-selector">
-											<div class="qty-cont">
-												<span class="input-group-btn">
-													<button id="js-qty-selector-minus_30037044" @click.prevent="quantityDecrement" class="btn btn-primary js-qty-selector-minus" data-nr="30037044" type="button" data-submit="" data-place="productaddtocartcomponent" :disabled="this.quantity == 1">
-														<b-icon-dash class="glyphicon glyphicon-minus"/>
-														<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-													</button>
-												</span>
-												<span class="pull-left">
-													<input type="text" name="quantity" id="quantity_30037044" maxlength="5" class="form-control js-qty-selector-input js-quantity-selector-input" size="1" :value="this.quantity" data-nr="30037044" data-increment="1" data-min="1" data-max="6.0" data-submit=" " data-place="productaddtocartcomponent">
-														<div class="a-title">
-															<span class="productUnit">adet</span>
-														</div>
-													</span>
-													<span class="input-group-btn">
-														<button id="js-qty-selector-plus_30037044" @click.prevent="quantityIncrement" class="btn btn-primary js-qty-selector-plus" data-nr="30037044" type="button" data-submit="" data-place="productaddtocartcomponent">
-															<b-icon-plus class="glyphicon glyphicon-plus" />
-															<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-														</button>
-													</span>
-												</div>
-											</div>
-											<div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
-												<div class="AddToCart-AddToCartAction" data-index="1">
-													<div id="addToCartTitle" style="display:none">
-                            Sepetinize eklendi</div>
-													<div class="row pd-center-right-cont">
-														<form id="addToCartForm" class="add_to_cart_form" action="/tr/cart/add" method="post">
-															<input type="hidden" maxlength="3" size="1" id="submitquantity_30037044" name="quantity" class="qty js-qty-selector-input" value="1">
-																<input type="hidden" name="frequencyId" value="">
-																	<input type="hidden" name="productCodePost" value="30037044">
-																		<input type="hidden" id="productBrandNamePost" name="productBrandNamePost" value="ÇAYKUR">
-																			<input type="hidden" id="productNamePost" name="productNamePost" value="Çaykur Rize Turist Çay 1000 g">
-																				<input type="hidden" id="productPricePost" name="productPricePost" value="33.50">
-																					<input type="hidden" id="productMainCategoryPost" name="productMainCategoryPost" value="Çaylar">
-																						<div class="col-xs-12 col-sm-12 col-md-8 col-lg-5 add-cartbtn-cont">
-																							<div class="cart-btn">
-																								<button type="submit" class="btn btn-primary  js-add-to-cart js-add-to-cart-product-detail"> Sepete Ekle</button>
-																								<button id="addToCartSubscriptions" type="submit" class="btn btn-primary js-add-to-cart js-add-to-subscriptions js-add-to-subscriptions-product-detail hidden">
-                                                Sepete Ekle</button>
-																							</div>
-																						</div>
-																						<div>
-																							<input type="hidden" name="CSRFToken" value="938e9054-3029-4b67-8c7d-3b9a1acc85b2">
-																							</div>
-																						</form>
-																						<form id="updateProductFavoriteStatusForm" action="/tr/updateProductFavorite" method="post">
-																							<input type="hidden" name="productCode" value="30037044">
-																								<div>
-																									<input type="hidden" name="CSRFToken" value="938e9054-3029-4b67-8c7d-3b9a1acc85b2">
-																									</div>
-																								</form>
-																							</div>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="row hidden-xs hidden-sm">
-																				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pd-camp-text"></div>
-																			</div>
-																		</div>
-																		<div class="row hidden-xs hidden-sm">
-																			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pd-camp-text">
-																				<div class="bundle"></div>
-																			</div>
-																		</div>
-																		<div class="recommendationAlert row hidden">
-																			<div class="col-xs-6 col-sm-7"> Bu ürün için önerilmiş ürün bulunmamaktadır.</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
+	<div class="pd-head">
+    <!-- laptop, tablet için -->
+    <div class="d-none d-lg-block">
+      <div class="row">
+          <!-- küçük resimler vertical-->
+          <div class="p-5">
+            <div class="container-fluid clearfix slider-area overflow-auto">
+              <div v-for="(img,index) in product.images" :key="index">
+                <div class="owl-item d-flex" style="cursor:pointer;">
+                  <img class="img-thumbnail mb-2 p-1 border-primary d-flex"
+                      :src="product.images[index]"
+                      @click="setSelectedIndex(index)"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- detaylar -->
+          <div class="w-75 p-5 row">
+            <!-- büyük resim -->
+            <div class="w-50 h-100">
+                <div class="" style="cursor:pointer;">
+                  <img class="img-fluid mb-2 p-1 border-primary big-img" :src="resize(product.images[selectedIndex])"/>
+                </div>
+            </div>
+            <!-- marka-fiyat -->
+            <div class="w-50 pl-2" carrefour-text>
+              <div class="brand mt-2">
+                <span >Marka: <a class="text-uppercase text-decoration-none">{{product.brand}}</a></span>
+              </div>
+              <div class="title mt-2">
+                <h1> {{product.title}} </h1>
+              </div>
+              <!-- ratings -->
+              <div class="ratings row align-items-center mt-3">
+                <Ratings class="" :rating="product.ratings" />
+                <span class="">(0) <a href="#">Yorum Yazın</a> </span>
+              </div>
+              <!-- fiyat -->
+              <Price :price="product.price" :discount="product.discount" :discounted_price="product.discounted_price"/>
+
+              <!--  quantity - sepete ekle -->
+              <div class="buttons row align-items-center my-3">
+                <QuantitySelector
+                      @increased="quantityIncrement"
+                      @decreased="quantityDecrement"/>
+                  <!-- sepete ekle -->
+                  <button class="btn ml-3 btn-sepet" carrefour @click="addToCart">Sepete Ekle</button>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!-- açıklama, yorum, taksit tabs-->
+      <div class="row" carrefour-text>
+        <div class="container-fluid">
+          <b-card no-body class="border-0">
+            <b-tabs v-model="tabIndex" card>
+              <b-tab class="tabbody" carrefour-text title="ÜRÜN AÇIKLAMASI" :title-link-class="linkClass(0)">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut gravida enim eros, aliquet pellentesque purus vulputate vitae. Donec malesuada dapibus diam sit amet elementum. Quisque aliquet felis a turpis pulvinar, ac aliquet nibh dictum. Pellentesque posuere ligula ac nisi elementum, a mollis mauris vestibulum. Maecenas lorem est, blandit id ligula in, malesuada mollis justo. Aenean varius dui at velit efficitur, in blandit mauris bibendum. Nulla ut eleifend urna.
+              </b-tab>
+              <b-tab class="tabbody" carrefour-text title="YORUMLAR" :title-link-class="linkClass(1)">
+                <Comment :title="'title'"
+                  :message="'message'"
+                  :stars="5"
+                  :date="'08.12.2020'"
+                  :username="'Yunus Emre Tüzün'"/>
+              </b-tab>
+              <b-tab class="tabbody" carrefour-text title="TAKSİT BİLGİLERİ" :title-link-class="linkClass(2)">
+                <a>Bu ürün için taksit imkanı bulunmamaktadır.</a>
+              </b-tab>
+              <b-tab class="tabbody" carrefour-text title="TESLİMAT İADE" :title-link-class="linkClass(3)">
+               <div>
+                 <div class="content iade">
+                   <ul>
+                    <li>ALICI, herhangi bir gerekçe göstermeksizin ve cezai şart ödemeksizin sözleşme konusu ürünün/ürünlerin kendisine veya gösterdiği adresteki kişi veya kuruluşa tesliminden itibaren 14 (on dört) gün içinde sözleşmeden cayma hakkına sahiptir.</li>
+                    <li>Cayma hakkının kullanılması için cayma hakkının kullanıldığına dair bu süre içinde SATICI'ya, e-mail ya da telefon ile bildirimde bulunulması gerekmektedir.</li>
+                    <li>Tüketicinin, cayma hakkını kullanması halinde, 3. kişiye veya ALICI'ya teslim edilen ürünün/ürünlerin ve ürüne/ürünlere ait fatura aslının ve teslimata dair kargo teslim tutanağının SATICI’ya iade edilmesi zorunludur. Cayma bildirimi ile birlikte bu belgelerin SATICI’ya ulaşmasından sonraki 10 (on) gün içinde ürünün/ürünlerin bedeli ALICI’ya masraf yüklemeksizin iade edilir.</li>
+                    <li>Cayma bildiriminin SATICI’ya ulaşmasından itibaren 20 (yirmi) gün içerisinde de ALICI’ya teslim edilen ürün/ürünleri geri alınır. Bu halde, ürünün/ürünlerin SATICI’ya iadesi kargo ile yapılır ve bu durumda kargo ücreti ALICI’ya aittir.</li>
+                    <li>Teslim alınmış olan malın değerinin azalması veya iadeyi imkânsız kılan bir nedenin varlığı cayma hakkının kullanılmasına engel değildir. Ancak değer azalması veya iadenin imkânsızlaşması tüketicinin kusurundan kaynaklanıyorsa ALICI, SATICI’ya malın değerini veya değerindeki azalmayı tazmin etmeyi kabul ve beyan eder.</li>
+                  </ul>
+                  <p>Cayma Hakkı Kullanılamayacak Ürünler</p>
+                  <p>Mesafeli Sözleşmelere Dair Yönetmelik uyarınca, gazete, dergi gibi kısa süreli yayınlar, gıda maddeleri, içecek ve diğer günlük tüketim maddeleri için sağlanan ürünler, tek seferde kullanılan ürünler, kopyalanabilir yazılım ve programlar ile niteliği itibari ile geri gönderilmeye elverişli olmayan, hızla bozulma veya son kullanma tarihi geçme ihtimali olan ürünlerde, ALICI cayma hakkını kullanamaz.</p>
+                  <ul>
+                      <li>Yazılım, program, DVD, VCD, CD ve kasetler, bilgisayar, kırtasiye sarf malzemeleri, ses ve görüntü kayıtları ile yukarıda sayılan kapsamda bulunmayan kozmetik ürünlerde ancak ambalajın açılmamış, bozulmamış ve ürünün kullanılmamış olması şartıyla ALICI tarafından cayma hakkı kullanılabilecektir.</li>
+                      <li>Tüm iadeler orijinal ambalaj ve kutu ile yapılmalıdır. Cep telefonları kutusu garanti belgesi kaşelenmek suretiyle açık gelmekte olup, bu husus iade sebebi olarak kabul edilmez. Elektronik ürün ve cep telefonları yetkili servis garantisi ile satılmaktadır.</li>
+                  </ul>
+                  <p>Kargo ile yapılan teslimatlarda iade koşulları;</p>
+                  <ul>
+                      <li>CarrefourSA mağazalarından ürün iade ve değişim işlemi yapılamamaktadır.</li>
+                      <li>İade için ürünün gönderilmesi gereken adres: Reysaş CarrefourSA Ulusal Depo Çayırova-9 549 Sok. 2080 Parselle Kayıtlı Akse Mah. Çayırova/Kocaeli</li>
+                      <li>Yasal süreçler gereği cayma hakkı kapsamında iade işlemleri ürünün size teslim tarihinden itibaren ilk 14 gün içinde yapılabilmektedir. 14 günü aşan iade /değişim işlemleri için mutlaka yetkili servis tutanağı ibraz edilmelidir. Yetkili servis belgesinin iletilmediği durumlarda cayma hakkı kullanılamaz.</li>
+                      <li>Siparişinizi size teslimatı yapan kargo firması ile geri iade etmeniz gerekmektedir. Beyaz eşya ürün grubu Horoz Lojistik ile taşınmaktadır. Servis raporu/ hasar tespit tutanağı ile birlikte beyaz eşya ürün grubu için ürünleri Reysaş CarrefourSA Ulusal Depo Çayırova-9 549 Sok. 2080 Parselle Kayıtlı Akse Mah. Çayırova/Kocaeli adresine göndermeniz gerekmektedir. Horoz lojistik tarafından ürününüz alınması için ürün orijinal ambalajında, yerinden sökülmüş ve taşımaya hazır durumuna getirilmelidir. Ürünü Horoz lojistiğe hazırlama sorumluluğu müşterimize aittir.</li>
+                      <li>Beyaz eşya dışında ki ürünler UPS KARGO ile iade edilmektedir. UPS KARGO karşı ödemeli anlaşmalı kargo kodu ürün iadenizin onaylanması ile birlikte sizinle paylaşılacaktır. Kargo paketi için ürün irsaliyesini de mutlaka koymanız gerekmektedir.</li>
+                      <li>Teslimat hizmeti ücret karşılığında sunulduğu için, teslimat sonrası iade taleplerinizde, teslimat hizmet bedeli iade edilmemektedir.</li>
+                  </ul></div>
+               </div>
+              </b-tab>
+            </b-tabs>
+          </b-card>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- small ekranlar için -->
+    <div class="d-md-block d-lg-none container-fluid">
+      <div class="overflow-hidden text-center">
+        <ProductDetailsMobile :product="product"/>
+      </div>
+    </div>
 	</div>
 </template>
 
 <script>
+import Ratings from './Ratings'
+import Comment from './Comment'
+import ProductDetailsMobile from './ProductDetailsMobile'
+import Price from './Price'
+import QuantitySelector from './QuantitySelector'
+import CategoryMenu from './CategoryMenu'
+
 export default {
+  components: { Ratings },
   props: {
     product: Object
   },
-    data() {
-        return {
-          quantity: 1,
-        }
+  data() {
+    return {
+      quantity: 1,
+      selectedIndex: 0,
+      tabIndex: 0
+    }
     },
     methods:{
+      linkClass(idx) {
+        if (this.tabIndex === idx) {
+          return ['px-3','py-2','border-primary','border-top','bg-light', 'border', 'border-bottom-0']
+        } else {
+          return ['px-3','py-2','bg-light']
+        }
+      },
+      setSelectedIndex(index){
+        this.selectedIndex = index
+      },
       quantityIncrement()  {
         this.quantity++;
       },
       quantityDecrement()  {
           this.quantity--;
+      },
+      resize(img){
+        try{
+          try{
+            const resizedImg = img.replace(/\/96/g,'/426')
+            return resizedImg
+          }catch (e){
+            try{
+              const resizedImg = img.replace(/\/600/g,'/426')
+              return resizedImg
+            }catch (e){};
+          };
+          return resizedImg
+        }catch (e) { return img }
+
+        },
+      resize2(img){
+        try{
+          try{
+            const resizedImg = img.replace(/\/96/g,'/256')
+            return resizedImg
+          }catch (e){
+            try{
+              const resizedImg = img.replace(/\/600/g,'/256')
+              return resizedImg
+            }catch (e){};
+          };
+          return resizedImg
+        }catch (e) { return img }
+
+      },
+      addToCart(){
+        this.$store.dispatch("cart/addProduct",{...this.product, quantity: this.quantity} ).then((x) => {});
       }
     },
-    computed: {
+    head () {
+      return {
+          bodyAttrs: {
+              class: 'bg-white'
+          }
+      }
     }
 }
 </script>
 
 <style scoped>
 
-  *{
-    font-family: 'Nunito',Helvetica,Arial,sans-serif;
-    color: var(--carrefour-blue);
-     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
+  .owl-item{
+     width: 80px !important;
   }
-  .product-cont {
-    background: #ffffff;
-    height: auto;
-    border-radius: 6px;
-}
-.hidden {
-    display: none !important;
-    visibility: hidden !important;
-}
-.price-cont .textLabel {
-    display: none;
+
+  .big-img{
+    max-height: 426px;
+  }
+
+  .brand span{
+    color: #82a4c0;
+    font-size: 14px;
+  }
+  .brand span a {
+    color: #005baa;
+    font-family: 'Nunito';
+    font-weight: 600;
+  }
+
+  .title h1 {
+    font-size: 34px;
+    font-family: 'Nunito';
+    font-weight: 600;
+    color: #303030;
+    margin: 0;
+    padding: 0;
 }
 
- .item-price {
+.price span {
     display: inline-block;
     font-size: 34px;
     color: #005baa;
@@ -194,248 +229,49 @@ export default {
     font-family: 'Nunito';
     font-weight: 600;
 }
-.container-fluid .product-details-cont .product-details {
-    background: #fff;
-    padding: 0 20px 0 25px;
-    min-height: 370px;
-    margin: 0;
-    border-radius: 6px;
-}
-
-.pd-tabs-content {
-    margin-top: 10px;
-}
-.col-lg-5 {
-    width: 41.66666667%;
-}
-.col-lg-12 {
-    float: left;
-}
- .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
-    position: relative;
-    min-height: 1px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.product-cont {
-    background: #ffffff;
-    height: auto;
-    border-radius: 6px;
-}
-
-.image-gallery {
-    position: relative;
-}
-
-.image-gallery .carousel {
-    width: 83%;
-    display: inline-block;
-    float: right;
-}
-
-.image-gallery .carousel {
-    margin: auto auto;
-    width: auto;
+.indirim{
+    background: #f8e71c;
+    width: 59px;
+    height: 59px;
     text-align: center;
+    border-radius: 50%;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 61px;
+    color: #303030;
 }
-.thumb {
-    position: relative;
+.indirim span{
+    font-size: 28px;
 }
-
-.image-gallery .carousel .item {
-    margin: 0;
-    background: #fff;
+.priceLineThrough {
+    font-size: 22px;
     display: block;
-    border-radius: 6px;
+    color: #878787 !important;
+    line-height: 1;
+    font-family: 'Nunito';
+    font-weight: 600;
+    text-decoration: line-through;
 }
 
-.owl-carousel .owl-item {
-    position: relative;
-    min-height: 1px;
-    float: left;
-    -webkit-backface-visibility: hidden;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.image-gallery .carousel {
-    text-align: center;
-}
-
-.owl-carousel .owl-wrapper-outer {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    transition: all .3s;
-}
-
-.image-gallery .carousel {
-    width: 83%;
-    display: inline-block;
-    float: right;
-}
-
-.pd-right {
-    font-style: normal;
-    font-size: 13px;
-}
-.container .pd-tabs-content {
-    margin-top: 10px;
-}
-.col-lg-7 {
-    width: 58.33333333%;
-}
-.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
-    float: left;
-}
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
-    position: relative;
-    min-height: 1px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.row {
-    margin-left: -10px;
-    margin-right: -10px;
-}
-.container-fluid {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.product-cont {
-    background: #ffffff;
-    height: auto;
-    border-radius: 6px;
-}
-.hidden-lg {
-    display: none !important;
-}
-.product-details-cont {
-    min-height: 370px;
-}
-.product-details {
-    background: #fff;
-    padding: 0 20px 0 25px;
-    min-height: 370px;
-    margin: 0;
-    border-radius: 6px;
-}
-.name {
-    margin: 8px 0 10px 0;
-    display: block;
-
-}
-h1{
-  line-height: 1.42857143;
-  color: #303030 ;
-}
-.price-row {
-    margin-bottom: 5px;
-}
-.addtocart-component {
-    margin: 20px 0 0 0;
-}
-.rating {
-    margin-bottom: 8px;
-}
-.rating .rating-stars {
-    float: left;
-    margin: 0 5px 0 0;
-    padding: 3px 0 1px;
-    letter-spacing: 50px;
-}
- .rating span.reviews {
-    color: #333;
-    font-size: 14px;
-    vertical-align: sub;
-}
-.price-row {
-    margin-bottom: 5px;
-}
-.addtocart-component {
-    margin: 20px 0 0 0;
-}
-.addtocart-component .qty-selector {
-    width: 120px;
-    padding: 0;
-    float: left;
-    margin: 12px 10px 10px 0;
-}
-.col-lg-9 {
-    width: 75%;
-}
-
-.addtocart-component .qty-selector .qty-cont {
-    margin-right: 3px;
-}
-
-.addtocart-component .qty-selector .input-group-btn {
-    width: 28px;
-}
-.addtocart-component .qty-selector .input-group-btn .btn {
+  .icon-plus{
+    background-color: #f0f8ff !important;
     width: 28px;
     height: 28px;
-    background: #f0f8ff;
-    color: #005baa;
-    padding: 5px 4px;
-    float: left;
-    border-radius: 17px;
-    border: 0;
-}
-.addtocart-component .AddToCart-AddToCartAction {
-    margin-left: -10px;
-    margin-right: -10px;
-}
+    font-size: 14px;
+  }
+  .icon{
+   width: 20px;
+    height: 20px;
+  }
 
-.addtocart-component .qty-selector .input-group-btn .btn:disabled {
-    background-color: #f0f8ff !important;
-}
-.addtocart-component .qty-selector .form-control {
-    height: auto;
-    border: 0;
-    padding: 1px 1px 0 1px;
-    background: transparent;
-    display: block;
-    font-weight: bold;
-}
-.addtocart-component .qty-selector .a-title {
-    font-size: 12px;
-    text-align: center;
-    display: block;
-}
-.addtocart-component .qty-selector .a-title {
-    font-size: 12px;
-    text-align: center;
-}
-.glyphicon {
+  .slider-area {
+    transform: translate3d(0, 0, 0);
+    transition: all .4s ease 0s;
+    padding: 0;
     position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-.container .pd-right {
-    font-style: normal;
-    font-size: 13px;
 }
 
-input, button, select, textarea {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-}
-.addtocart-component .cart-btn .btn {
+.btn-sepet {
     text-transform: none;
     font-size: 22px;
     height: 58px;
@@ -443,37 +279,13 @@ input, button, select, textarea {
     display: inline-block;
     border-radius: 6px;
 }
-.addtocart-component .cart-btn {
-    text-align: center;
-    margin: 0;
+
+.tabbody{
+    background: #f6f9fc;
+    color: #465e72;
+    border-radius: 6px;
+    padding: 80px 60px;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #085fae;
-    border-color: transparent;
-}
-.btn {
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: normal;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    background-image: none;
-    border: 1px solid transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-    white-space: nowrap;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    border-radius: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
+
 </style>

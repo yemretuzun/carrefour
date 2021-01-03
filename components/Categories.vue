@@ -1,21 +1,23 @@
 <template>
 <div>
-  <div class="ground-effect"></div>
+  <div class="ground-effect d-none d-sm-flex"></div>
     <div id="categoriesTitle" @mouseover="mouseOver" @mouseleave="mouseLeave" class="m-auto">
       <div class="link-name">
-        <b-icon-list class="menu-hamburger-icon d-inline-block pull-left " />
-        <div class="d-inline ">
+        <b-icon-list class="menu-hamburger-icon d-inline-block pull-left "/>
+        <div class="d-none d-sm-inline">
           <span class="link-name">Kategoriler</span>
         </div>
-          <b-icon-chevron-down class="glyphicon-menu-down d-inline-block ml-5"/>
+          <b-icon-chevron-down class="glyphicon-menu-down d-none d-sm-inline ml-5"/>
       </div>
       <div v-if="showList">
           <ul v-for="(category,index) in categories" :key="index" class="text-left" style="list-style: none;">
             <b-dropdown-divider v-if="index != 0"/>
-            <div class="row">
+            <div class="row" @mouseover="mouseOverSub" @mouseleave="mouseLeaveSub">
+              <!-- kategori iconu -->
               <div>
                 <img :src="category.icon" class="d-inline" width="26" height="26"/>
               </div>
+              <!-- kategori text -->
               <div>
                 <b-dropdown no-caret dropright :text="category.mainCategory" variant="outlined" class="link-name d-inline-block">
                 <div>
@@ -25,7 +27,6 @@
                 </div>
                 </b-dropdown>
               </div>
-
             </div>
           </ul>
       </div>
@@ -40,7 +41,7 @@ import Category from './Category.vue'
     props: { categories: Array },
     data() {
       return {
-        showList: false,
+        showList: true,
         showSubs: false,
       }
     },
@@ -56,7 +57,8 @@ import Category from './Category.vue'
       },
       mouseLeaveSub(){
         this.showSubs = false;
-      }
+      },
+
     },
   }
 </script>

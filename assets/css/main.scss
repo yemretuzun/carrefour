@@ -13,6 +13,16 @@ $carrefour-blue: #015aac;
 {
   font-family: 'Nunito',sans-serif;
   background-color: $carrefour-blue;
-  color: $carrefour-blue;
+  color: #fff;
   border-color: $carrefour-blue;
+  text-decoration: none;
+}
+
+*[carrefour]:hover
+{
+  font-family: 'Nunito',sans-serif;
+  background-color: $carrefour-blue;
+  color: #fff;
+  border-color: $carrefour-blue;
+  text-decoration: none;
 }

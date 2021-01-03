@@ -1,38 +1,66 @@
 <template>
   <div>
-    <div>
-      <Header :categories="categories"/>
-      <div class="row sticky-top w-100" carrefour-bg>
-      <div class="float-left">
-          <Categories :categories="categories" class="hidden-xs menu-wrapper position-absolute"/>
-          <div class="row w-100" style="height:35px;"></div>
+
+    <div class="bg-white">
+      <Header/>
+    </div>
+
+    <div id="sticky_menu" class="row d-none d-lg-block sticky-top m-0 p-0" style="height:45px;" carrefour-bg >
+      <div class="container">
+        <div class="position-absolute sticky-top" style="z-index:9999 !important;">
+          <CategoryMenu/>
         </div>
       </div>
     </div>
-    <Nuxt />
+
+    <div class="container-fluid">
+      <div class="container">
+        <Nuxt class="nuxt"/>
+      </div>
+    </div>
+
+    <Footer />
+
   </div>
 </template>
 
 <script>
 import Header from '../components/Header'
-//import Header from '../components/Header.vue'
-
+import CategoryMenu from '../components/CategoryMenu'
+import Footer from '../components/Footer'
 import { mapMutations } from 'vuex'
+import $ from 'jquery'
 
 export default {
-  computed: {
-    categories(){
-      return this.$store.state.categories.list
-    }
+  data() {
+        return {
+        }
   },
-  methods: {
+  head () {
+      return {
+          bodyAttrs: {
+              class: 'bg'
+          }
+      }
+    },
 
-  }
 }
 </script>
 
 
 <style>
+
+
+.bg{
+  background-color: #f1f1f1;
+}
+
+.icon-map-marker {
+    background: url("https://reimg-carrefour.mncdn.com/staticimage/icons-sprite-4.svg?v=1.0") -92px -27px;
+    width: 18px;
+    height: 22px;
+    margin-top: 12px;
+}
 
 Headerhtml {
   font-family:

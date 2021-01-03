@@ -1,25 +1,26 @@
 <template>
   <div class="m-auto">
     <table class="table">
-      <tr>
-        <td><b-img :src="item.image" width="75"/></td>
-        <td><span class="item-title">{{item.title}}</span></td>
-        <td>
-          <tr>
-            <td class="border-0">
-              <b-button class="bg-transparent border-0" @click.prevent="quantityDecrement"><b-icon-dash-circle-fill color="#dde2eb" scale="1.3"/></b-button>
-            </td>
-            <td class="border-0 item-quantity">
-              <tr><a><strong>{{item.quantity}}</strong><br/>adet</a></tr>
-              <tr> <span @click="deleteItem" class="delete-item">Ürünü Sil</span> </tr>
-            </td>
-            <td class="border-0">
-              <b-button class="bg-transparent border-0" @click.prevent="quantityIncrement"><b-icon-plus-circle-fill color="#dde2eb" class="" scale="1.3"/></b-button>
-            </td>
-          </tr>
-
-        </td>
-      </tr>
+      <tbody>
+        <tr>
+          <td class="w-25"><b-img :src="item.images[0]" width="75"/></td>
+          <td class="w-25"><span class="item-title">{{item.title}}</span></td>
+          <td class="w-25 text-center">
+            <tr>
+              <td class="border-0">
+                <b-button class="bg-transparent border-0" @click.prevent="quantityDec"><b-icon-dash-circle-fill color="#dde2eb" scale="1.3"/></b-button>
+              </td>
+              <td class="border-0 item-quantity">
+                <tr><a><strong>{{item.quantity}}</strong><br/>adet</a></tr>
+                <tr> <span @click="deleteItem" class="delete-item">Ürünü Sil</span> </tr>
+              </td>
+              <td class="border-0">
+                <b-button class="bg-transparent border-0" @click.prevent="quantityInc"><b-icon-plus-circle-fill color="#dde2eb" class="" scale="1.3"/></b-button>
+              </td>
+            </tr>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </div>
   <!-- <b-img :src="item.image" width="75"/> -->
@@ -41,20 +42,19 @@ export default {
         }
     },
     methods:{
-      quantityDecrement(){
+      quantityDec(){
         if(this.item.quantity > 1)
         {
           this.item.quantity--;
-          this.$emit('priceDec', this.item.price);
+          this.$emit('quantityDec',{...this.item});
         }
       },
-      quantityIncrement(){
+      quantityInc(){
         this.item.quantity++;
-        this.$emit('priceInc', this.item.price);
+        this.$emit('quantityInc', {...this.item});
       },
       deleteItem(){
-          this.$emit('priceDec', this.item.price);
-          this.$emit('removeItem');
+        this.$emit('removeItem');
       }
     },
     computed: {

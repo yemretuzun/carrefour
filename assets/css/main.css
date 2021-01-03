@@ -1,3 +1,21 @@
+:root{
+  --carrefour-blue: #015aac;
+}
+
+.smaller-50{
+  transform: scale(.50) !important;
+}
+.smaller{
+  transform: scale(.75) !important;
+}
+.smaller-75{
+  transform: scale(.75) !important;
+}
+
+.smaller-90{
+  transform: scale(.90) !important;
+}
+
 
 
 

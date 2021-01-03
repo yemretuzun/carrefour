@@ -1,10 +1,20 @@
 <template>
   <div class="border border-primary rounded-pill search-div">
-      <b-row>
-          <div class="search-icon"><b-icon-search ></b-icon-search></div>
-          <div><b-input class="search-input border-0" :placeholder="placeholder"></b-input></div>
-          <div><button  class="btn btn-primary rounded-pill" carrefour-bg>Ara</button></div>
-      </b-row>
+      <div class="row">
+          <div class="mr-auto ml-0 mt-auto mb-auto">
+            <b-icon-search></b-icon-search>
+          </div>
+          <div class="m-auto col">
+            <b-input v-model="text" class="search-input border-0 m-auto" :placeholder="placeholder"></b-input>
+          </div>
+          <div class="ml-auto mr-0">
+            <button class="btn btn-primary rounded-pill"
+                    type="submit"
+                    carrefour-bg
+                    @click="search"
+                    >Ara</button>
+          </div>
+      </div>
   </div>
 </template>
 
@@ -13,9 +23,16 @@
 export default {
     data() {
         return {
-          placeholder:"Ürün Arayın..."
+          placeholder:"Ürün Arayın...",
+          text: ""
         }
+    },
+    methods: {
+      search(){ this.$router.push('/search/' + this.text); },
+      searchKey(){ alert(this.text) },
+
     }
+
 }
 </script>
 
@@ -24,10 +41,8 @@ export default {
   font-family: 'Nunito',sans-serif;
 }
 .search-div{
+  background: #fff;
   padding: 5px 25px;
-}
-.search-icon{
-  margin: auto;
 }
 
 .search-input{

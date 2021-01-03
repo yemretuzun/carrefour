@@ -1,24 +1,32 @@
 <template>
-<div  class="cont">
-  <b-container>
-    <b-row align-h="start">
-      <span class="title">{{title}}</span>
-    </b-row>
-    <b-row align-h="start">
-      <b-rating inline no-border readonly  v-model="stars" color="gold"></b-rating>
-    </b-row>
-    <b-row align-h="start">
-      <span class="msg">{{message}}</span>
-    </b-row>
-    <b-row align-h="start" >
-      <span class="usr-date">{{username}} ({{date}})</span>
-    </b-row>
-  </b-container>
-</div>
+  <div class="container-fluid bg-light">
+    <div class="row title">
+      {{title}}
+    </div>
+    <div class="row">
+      <Ratings :rating="starts"
+                :color="'gold'"
+                :bg_color="'bg-light'"
+      />
+    </div>
+    <div class="row msg">
+      <a>{{message}}</a>
+    </div>
+    <div class="row">
+      <span class="usr-date">
+         {{username}}
+      </span>
+      <span class="ml-2 usr-date">
+        ({{date}})
+      </span>
+    </div>
+  </div>
 </template>
 
 
 <script>
+import Ratings from './Ratings'
+
 export default {
   props: {
       title: String,
@@ -55,28 +63,23 @@ export default {
     margin-top: 50px;
   }
 
-  b-row{
-
-  }
 
   .title {
     line-height: 33px;
-    margin-left: 10px;
     font-size: 14px;
-    color: #005baa;
+    color: #545558;
     font-weight: 800;
   }
 
-    .msg {
-    line-height: 33px;
-    margin-left: 10px;
+  .msg {
     font-size: 14px;
-    color: #005baa;
+    color: #35393b;
+    font-weight: 600;
+
   }
 
   .usr-date{
     line-height: 33px;
-    margin-left: 10px;
     font-size: 14px;
     color: #565657;
   }

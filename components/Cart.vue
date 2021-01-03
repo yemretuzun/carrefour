@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <div v-for="(cartItem, index) in cartItems" :key="index">
+  <div class="countainer py-5 mb-5">
+    <div v-for="(cartItem, index) in cartItems.cart" :key="index">
       <CartItem  :item="cartItem"
                   @removeItem="removeItem(index)"
-                  @priceDec="priceDec"
-                  @priceInc="priceInc"
+                  @quantityDec="quantityDec"
+                  @quantityInc="quantityInc"
       />
     </div>
     <div>{{totalPrice}} TL</div>
@@ -21,27 +21,29 @@ export default {
   props:{cartItems: Array},
     data() {
         return {
-          totalPrice: 33.50 + 18.15,
-            
         }
     },
     methods:{
+
       sepetiBosalt(){
-          this.cartItems = [];
-          this.totalPrice = 0;
+        this.$store.dispatch("cart/sepetiBosalt").then((x) => {});
       },
       removeItem(index){
-        this.cartItems.splice(index,1)
+          this.$store.dispatch("cart/removeProduct",index).then((x) => {});
       },
-      priceInc(newPrice){
-        this.totalPrice += newPrice;
+      quantityInc(p){
+        this.$store.dispatch("cart/updateProduct",p ).then((x) => {});
       },
-      priceDec(newPrice){
-        this.totalPrice -= newPrice;
+      quantityDec(p){
+        this.$store.dispatch("cart/updateProduct",p ).then((x) => {});
       }
     },
     computed: {
-
+      totalPrice(){
+        let total = 0
+        this.$store.state.cart.mycart.cart.forEach(p => total += p.price * p.quantity)
+        return total.toFixed(2);
+      },
     }
 }
 </script>
